@@ -1,0 +1,42 @@
+﻿Software Engineering Skills Exercise
+
+
+There are two files associated with this exercise that are contained in the same folder as this document.
+
+
+1. 16154.yaml - a yaml file describing the data
+2. ufo_awesome.tsv - a file containing the data. Note: while the yaml file indicates the data is pipe (‘|’) deimited, the data is tab delimited
+
+
+You will need to obtain supplementary data in order to complete this exercise, e.g: a list of U.S. states.
+
+
+Test activities:
+
+
+1. Create a maven project to contain the data and source code for MapReduce jobs related to this exercise. Provide instructions for executing these jobs in a README.txt file at the top level of the project. In the README.txt file, explain how to run the code to answer each of these questions. For simplicity, the jobs will run in hadoop standalone (non-distributed) mode.
+
+
+1. Create a class to represent a single UFO report, including fields for each of the columns indicated in the YAML file and get methods for each field. Implement a method parse(String line) that will take a line from the input file, parse it and populate each of the fields with the appropriate data from that line. Implement a method toString() that will return a string that matches the original line. Devise and implement a strategy for handing malformed, incomplete or invalid lines. Write one or more JUnit Unit tests to validate the parse and toString() methods and your validation approaches, and make sure this test is run when you type ‘mvn test’. 
+
+
+1. Write a MapReduce job that will produce a list of the top 10 UFO shapes reported across all reports - include counts for each of these shapes, for example:
+
+
+...
+4490  unknown
+3637  sphere
+3452  fireball
+2869  oval
+...
+
+
+1. Write a MapReduce job (Job #2) that will produce a list of the number of reports by year by U.S. state found in these reports. Filter out any entries that did not occur in the U.S. The output should be State, Year, Count, like below.
+
+
+```
+CA 2014 32
+```
+
+
+1. When you are done with #1-4, create a public repository on github.com to hold your project and push the source code there. I will expect to be able to clone this repository, run `mvn clean package` to build the code and run unit tests (to verify #1) and then follow complete instructions in README.txt execute the jobs defined in #3 and #4. The example will be executed in a Linux environment but should contain very little (if any) platform-specific code.
